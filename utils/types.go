@@ -89,3 +89,25 @@ type SidekickAppConfig struct {
 	PreviewEnvs    map[string]SidekickPreview `yaml:"previewEnvs,omitempty"`
 }
 type EnvVar map[string]string
+
+type SidekickConfig struct {
+	Version string `yaml:"version"`
+	Servers []SidekickServer `yaml:"servers"`
+	Contexts []SidekickContext `yaml:"contexts"`
+	CurrentContext string `yaml:"current-context"`
+}
+
+type SidekickServer struct {
+	Name string `yaml:"name"`
+	Address string `yaml:"serveraddress"`
+	Distro string `yaml:"distro"`
+	PlatformId string `yaml:"platformid"`
+	CertEmail string `yaml:"certemail"`
+	PublicKey string `yaml:"publickey"`
+	SecretKey string `yaml:"secretkey"`
+}
+
+type SidekickContext struct {
+	Name string `yaml:"name"`
+	Server string `yaml:"server"`
+}
